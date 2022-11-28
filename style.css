@@ -8,12 +8,18 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
 }
 
+:root {
+    --white: #FAFAFA;
+    --black: #0A0A0A;
+}
+
 .sidebar {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     max-height: max(675px, 100vh);
+    color: var(--white);
 }
 
 .background {
