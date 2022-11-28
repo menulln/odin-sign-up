@@ -17,8 +17,12 @@ body {
 }
 
 :root {
-    --white: #FAFAFA;
-    --black: #0A0A0A;
+    --white: #F8F8F8;
+    --black: #0F0F0F;
+    --left-gap: 4vw;
+    --green: #596D48;
+    --light-green: #657c51;
+    --radius: 8px;
 }
 
 .sidebar {
@@ -70,6 +74,8 @@ body {
 main {
     display: flex;
     justify-content: center;
+    background-color: var(--white);
+    color: var(--black);
 }
 
 .main-wrapper {
@@ -77,8 +83,99 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    gap: 4vh;
 }
 
 .main-wrapper > * {
-    padding: 0 4vw;
+    margin-left: var(--left-gap);
+}
+
+.title {
+    font-size: calc(0.5rem + 1vw);
+    font-weight: bold;
+    margin-right: 12vw;
+    margin-bottom: 4vh;
+    color: #161616;
+}
+
+.em {
+    font-style: italic;
+}
+
+.form-wrapper {
+    background-color: #FCFCFC;
+    margin-left: 0;
+    padding: 2vh var(--left-gap);
+    align-self: stretch;
+    box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.1);
+}
+
+.form-wrapper > h3 {
+    font-size: calc(0.5rem + 1vw);
+    margin-bottom: 2vh; 
+}
+
+.form-elements {
+    display: flex;
+    gap: 6vw;
+}
+
+.left,
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+label {
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: calc(0.45rem + 0.45vw);
+    margin-bottom: 0.2vw;
+    color: #161616;
+}
+
+input {
+    width: 21vw;
+    height: 4.25vh;
+    font-size: 90%;
+    padding: 0 2%;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #034eda;
+    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.075);
+}
+
+.submit-button {
+    color: var(--white);
+    background-color: var(--green);
+    padding: 1.5vh 4vw;
+    font-size: calc(0.55rem + 0.55vw);
+    font-weight: bold;
+    border: 0;
+    border-radius: var(--radius);
+    margin-bottom: 2vh;
+}
+
+.submit-button:hover {
+    background-color: var(--light-green);
+}
+
+.login {
+    font-weight: bold;
+}
+
+.login > a {
+    text-decoration: none;
+    color: var(--green);
+}
+
+.login > a:hover {
+    color: var(--light-green);
 }
