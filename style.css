@@ -46,6 +46,7 @@ body {
 .credits {
     position: absolute;
     bottom: 12px;
+    text-shadow: 0px 0px 5px var(--black);
 }
 
 .credits > a {
