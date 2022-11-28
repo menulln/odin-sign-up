@@ -47,3 +47,8 @@ body {
     position: absolute;
     bottom: 12px;
 }
+
+.credits > a {
+    color: inherit;
+    font-style: none;
+}
