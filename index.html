@@ -18,57 +18,59 @@
         <p class="credits">Photo by <a href="https://unsplash.com/@vickholius">@vickholius</a> on Unsplash</p>
     </div>
     <main>
-        <p class="title">
-            This is not a real online service!
-            You know you need something like this
-            in your life to help you realize your deepest dreams.
-            Sign up now to get started.
-            <br><br>
-            You <span class="em">know</span> you want to.
-        </p>
-        <form>
-            <div class="form">
-                <h3>Let's do this!</h3>
-                <div class="form-elements">
-                    <div class="left">
-                        <div>
-                            <label for="fname">First Name</label>
-                            <input type="text" id="fname" name="first_name" maxlength="64">
-                            <span class="error"></span>
+        <div class="main-wrapper">
+            <p class="title">
+                This is not a real online service!
+                You know you need something like this
+                in your life to help you realize your deepest dreams.
+                Sign up now to get started.
+                <br><br>
+                You <span class="em">know</span> you want to.
+            </p>
+            <form>
+                <div class="form">
+                    <h3>Let's do this!</h3>
+                    <div class="form-elements">
+                        <div class="left">
+                            <div>
+                                <label for="fname">First Name</label>
+                                <input type="text" id="fname" name="first_name" maxlength="64">
+                                <span class="error"></span>
+                            </div>
+                            <div>
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="e_mail">
+                                <span class="error"></span>
+                            </div>
+                            <div>
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" minlength="8">
+                                <span class="error"></span>
+                            </div>
                         </div>
-                        <div>
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="e_mail">
-                            <span class="error"></span>
-                        </div>
-                        <div>
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" minlength="8">
-                            <span class="error"></span>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div>
-                            <label for="lname">Last Name</label>
-                            <input type="text" id="lname" name="last_name" maxlength="64">
-                            <span class="error"></span>
-                        </div>
-                        <div>
-                            <label for="tel">Phone Number</label>
-                            <input type="text" id="tel" name="tel" maxlength="16" pattern="[0-9]{1,16}">
-                            <span class="error"></span>
-                        </div>
-                        <div>
-                            <label for="password-confirm">Confirm Password</label>
-                            <input type="password" id="password-confirm" minlength="8">
-                            <span class="error"></span>
+                        <div class="right">
+                            <div>
+                                <label for="lname">Last Name</label>
+                                <input type="text" id="lname" name="last_name" maxlength="64">
+                                <span class="error"></span>
+                            </div>
+                            <div>
+                                <label for="tel">Phone Number</label>
+                                <input type="text" id="tel" name="tel" maxlength="16" pattern="[0-9]{1,16}">
+                                <span class="error"></span>
+                            </div>
+                            <div>
+                                <label for="password-confirm">Confirm Password</label>
+                                <input type="password" id="password-confirm" minlength="8">
+                                <span class="error"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <button type="submit">Create Account</button>
-            <p class="login">Already have an account? <a href="">Log in</a></p>
-        </form>
+                <button type="submit">Create Account</button>
+                <p class="login">Already have an account? <a href="">Log in</a></p>
+            </form>
+        </div>
     </main>
 </body>
 </html>
