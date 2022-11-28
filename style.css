@@ -51,6 +51,11 @@ body {
     width: auto;
 }
 
+.logo-title {
+    font-family: "Norse Bold";
+    font-size: calc(2rem + 4vw);
+}
+
 .credits {
     position: absolute;
     bottom: 12px;
