@@ -124,7 +124,7 @@ main {
 .right {
     display: flex;
     flex-direction: column;
-    gap: 3vh;
+    gap: 2vh;
 }
 
 label {
@@ -144,6 +144,7 @@ input {
     padding: 0 2%;
     border: 1px solid #E5E7EB;
     border-radius: 6px;
+    margin-bottom: 0.5vw;
 }
 
 input:focus {
@@ -178,4 +179,33 @@ input:focus {
 
 .login > a:hover {
     color: var(--light-green);
+}
+
+.error {
+    position: absolute;
+    font-family: monospace;
+    font-size: calc(0.4rem + 0.4vw);
+    text-transform: uppercase;
+    color: var(--black);
+    display: inline-block;
+    margin-left: 0.4vw;
+    top: 0.6px;
+}
+
+.icon {
+    position: relative;
+    font-family: monospace;
+    font-size: calc(0.4rem + 0.4vw);
+    text-transform: uppercase;
+    color: var(--white);
+    display: block;
+    visibility: hidden;
+}
+
+.icon::before {
+    content: '!';
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    background-color: rgb(199, 70, 70);
+    padding: 0 3px;
 }
