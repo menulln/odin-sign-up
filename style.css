@@ -22,6 +22,7 @@ body {
     --left-gap: 4vw;
     --green: #596D48;
     --light-green: #657c51;
+    --red: rgb(199, 70, 70);
     --radius: 8px;
 }
 
@@ -206,6 +207,6 @@ input:focus {
     content: '!';
     border: 1px solid var(--black);
     border-radius: 50%;
-    background-color: rgb(199, 70, 70);
+    background-color: var(--red);
     padding: 0 3px;
 }
