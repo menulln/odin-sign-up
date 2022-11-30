@@ -9,6 +9,7 @@ inputElements.forEach( (input) => {
         errorMsg.textContent = 'Wrong format. | name@example.com';
         errorIcon.style.visibility = 'visible';
         errorMsg.style.visibility = 'visible';
+        input.style.border = '1px solid rgb(199, 70, 70)';
       } else if (input.validity.patternMismatch) {
 
       } else if (input.validity.tooLong) {
