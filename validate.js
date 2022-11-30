@@ -19,6 +19,13 @@ inputElements.forEach( (input) => {
             errorIcon.classList.remove('invalid');
             errorIcon.classList.add('valid');
             errorMsg.textContent = 'Valid email';
+          } else {
+            errorMsg.textContent = 'Wrong format. | name@example.com';
+            errorIcon.classList.remove('valid');
+            errorIcon.classList.add('invalid');
+            errorIcon.style.visibility = 'visible';
+            errorMsg.style.visibility = 'visible';
+            input.style.border = '1px solid rgb(199, 70, 70)';
           }
         });
       } else if (input.validity.patternMismatch) {
