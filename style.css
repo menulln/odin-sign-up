@@ -213,7 +213,7 @@ input:focus {
     top: 0.6px;
 }
 
-.icon {
+.invalid {
     position: relative;
     font-family: monospace;
     font-size: calc(0.4rem + 0.4vw);
@@ -223,7 +223,7 @@ input:focus {
     visibility: hidden;
 }
 
-.icon::before {
+.invalid::before {
     content: '!';
     border: 1px solid var(--black);
     border-radius: 50%;

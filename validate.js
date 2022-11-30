@@ -8,7 +8,7 @@ inputElements.forEach( (input) => {
       if (input.validity.typeMismatch) {
         errorMsg.textContent = 'Wrong format. | name@example.com';
         errorIcon.classList.remove('valid');
-        errorIcon.classList.add('icon');
+        errorIcon.classList.add('invalid');
         errorIcon.style.visibility = 'visible';
         errorMsg.style.visibility = 'visible';
         input.style.border = '1px solid rgb(199, 70, 70)';
@@ -16,7 +16,7 @@ inputElements.forEach( (input) => {
         input.addEventListener('input', (e) => {
           if (input.validity.valid) {
             input.style.border = '1px solid rgb(88, 209, 77)';
-            errorIcon.classList.remove('icon');
+            errorIcon.classList.remove('invalid');
             errorIcon.classList.add('valid');
             errorMsg.textContent = 'Valid email';
           }
