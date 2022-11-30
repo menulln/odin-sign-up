@@ -20,9 +20,10 @@ body {
     --white: #F8F8F8;
     --black: #0F0F0F;
     --left-gap: 4vw;
-    --green: #596D48;
+    --dark-green: #596D48;
     --light-green: #657c51;
     --red: rgb(199, 70, 70);
+    --green: rgb(88, 209, 77);
     --radius: 8px;
 }
 
@@ -175,7 +176,7 @@ input:focus {
 
 .submit-button {
     color: var(--white);
-    background-color: var(--green);
+    background-color: var(--dark-green);
     padding: 1.5vh 4vw;
     font-size: calc(0.55rem + 0.55vw);
     font-weight: bold;
@@ -194,7 +195,7 @@ input:focus {
 
 .login > a {
     text-decoration: none;
-    color: var(--green);
+    color: var(--dark-green);
 }
 
 .login > a:hover {
