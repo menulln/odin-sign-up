@@ -8,7 +8,9 @@ inputElements.forEach( (input) => {
 
 passwordConfirm.addEventListener('focusout', validatePassword);
 
-submitButton.addEventListener('click', (e) => {
+submitButton.addEventListener('click', validateSubmit);
+
+function validateSubmit(e) {
   inputElements.forEach( (input) => {
     if (input.validity.valueMissing) {
       const errorIcon = input.nextElementSibling;
@@ -21,7 +23,7 @@ submitButton.addEventListener('click', (e) => {
       e.preventDefault();
     }
   });
-});
+}
 
 function validateForm(e) {
   const input = e.target;
