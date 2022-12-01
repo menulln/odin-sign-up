@@ -15,6 +15,7 @@ submitButton.addEventListener('click', (e) => {
       const errorMsg = errorIcon.firstChild; 
       setError(errorIcon, errorMsg, input, 'valueMissing');
       e.preventDefault();
+      input.addEventListener('input', validateForm);
     }
     if (!(input.validity.valid)) {
       e.preventDefault();
