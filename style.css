@@ -187,6 +187,7 @@ input:focus {
 
 .submit-button:hover {
     background-color: var(--light-green);
+    cursor: pointer;
 }
 
 .login {
