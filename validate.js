@@ -5,7 +5,26 @@ inputElements.forEach( (input) => {
   input.addEventListener('focusout', validateForm);
 });
 
-passwordConfirm.addEventListener('focusout', (e) => {
+passwordConfirm.addEventListener('focusout', validatePassword);
+
+function validateForm(e) {
+  const input = e.target;
+  if (!(input.validity.valid) && input.value !== "") {
+    const errorIcon = input.nextElementSibling;
+    const errorMsg = errorIcon.firstChild; 
+    if (input.validity.typeMismatch) {
+      setError(errorIcon, errorMsg, input, 'typeMismatch');
+    } else if (input.validity.patternMismatch) {
+      setError(errorIcon, errorMsg, input, 'patternMismatch');
+    } else if (input.validity.tooLong) {
+      setError(errorIcon, errorMsg, input, 'tooLong');
+    } else if (input.validity.tooShort) {
+      setError(errorIcon, errorMsg, input, 'tooShort');
+    } 
+  }
+}
+
+function validatePassword(e) {
   const password = document.querySelector('#password');
   if (!(passwordConfirm.value === password.value)) {
     const errorIcon = passwordConfirm.nextElementSibling;
@@ -16,74 +35,33 @@ passwordConfirm.addEventListener('focusout', (e) => {
     passwordConfirm.addEventListener('input', (e) => {
       if (passwordConfirm.value === password.value) {
         setValid(errorIcon, passwordConfirm);
-        setMessage(errorMsg, 'Valid.');
+        setMessage(errorMsg, 'Valid input.');
       } else {
         setInvalid(errorIcon, passwordConfirm);
         setMessage(errorMsg, 'Passwords do not match.');
       }
     });
   }
-});
+}
 
-function validateForm(e) {
-  const input = e.target;
-  if (!(input.validity.valid) && input.value !== "") {
-    const errorIcon = input.nextElementSibling;
-    const errorMsg = errorIcon.firstChild; 
-    if (input.validity.typeMismatch) {
-      setInvalid(errorIcon, input);
-      setMessage(errorMsg, 'Wrong format. | name@example.com');
-      setVisible(errorIcon, errorMsg);
-      input.addEventListener('input', (e) => {
-        if (input.validity.valid) {
-          setValid(errorIcon, input);
-          setMessage(errorMsg, 'Valid.');
-        } else {
-          setInvalid(errorIcon, input);
-          setMessage(errorMsg, 'Wrong format. | name@example.com');
-        }
-      });
-    } else if (input.validity.patternMismatch) {
-      setInvalid(errorIcon, input);
-      setMessage(errorMsg, 'Invalid character found.');
-      setVisible(errorIcon, errorMsg);
-      input.addEventListener('input', (e) => {
-        if (input.validity.valid) {
-          setValid(errorIcon, input);
-          setMessage(errorMsg, 'Valid.');
-        } else {
-          setInvalid(errorIcon, input);
-          setMessage(errorMsg, 'Invalid character found.');
-        }
-      });
-    } else if (input.validity.tooLong) {
-      setInvalid(errorIcon, input);
-      setMessage(errorMsg, 'Too many characters.');
-      setVisible(errorIcon, errorMsg);
-      input.addEventListener('input', (e) => {
-        if (input.validity.valid) {
-          setValid(errorIcon, input);
-          setMessage(errorMsg, 'Valid.');
-        } else {
-          setInvalid(errorIcon, input);
-          setMessage(errorMsg, 'Too many characters.');
-        }
-      });
-    } else if (input.validity.tooShort) {
-      setInvalid(errorIcon, input);
-      setMessage(errorMsg, 'Please enter at least 8 characters.');
-      setVisible(errorIcon, errorMsg);
-      input.addEventListener('input', (e) => {
-        if (input.validity.valid) {
-          setValid(errorIcon, input);
-          setMessage(errorMsg, 'Valid.');
-        } else {
-          setInvalid(errorIcon, input);
-          setMessage(errorMsg, 'Please enter at least 8 characters.');
-        }
-      });
+function setError(icon, message, input, type) {
+  const errorMessage = (type === 'typeMismatch') ? 'Wrong format. | name@example.com'
+                     : (type === 'patternMismatch') ? 'Invalid character found.'
+                     : (type === 'tooLong') ? 'Too many characters.'
+                     : (type === 'tooShort') ? 'Please enter at least 8 characters.'
+                     : 'Invalid';
+  setInvalid(icon, input);
+  setMessage(message, errorMessage);
+  setVisible(icon, message);
+  input.addEventListener('input', (e) => {
+    if (input.validity.valid) {
+      setValid(icon, input);
+      setMessage(message, 'Valid input.');
+    } else {
+      setInvalid(icon, input);
+      setMessage(message, errorMessage);
     }
-  }
+  });
 }
 
 function setValid(icon, input) {
