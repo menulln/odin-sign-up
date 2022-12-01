@@ -16,7 +16,7 @@ function validateForm(e) {
       input.addEventListener('input', (e) => {
         if (input.validity.valid) {
           setValid(errorIcon, input);
-          setMessage(errorMsg, 'Valid');
+          setMessage(errorMsg, 'Valid.');
         } else {
           setInvalid(errorIcon, input);
           setMessage(errorMsg, 'Wrong format. | name@example.com');
@@ -29,16 +29,38 @@ function validateForm(e) {
       input.addEventListener('input', (e) => {
         if (input.validity.valid) {
           setValid(errorIcon, input);
-          setMessage(errorMsg, 'Valid');
+          setMessage(errorMsg, 'Valid.');
         } else {
           setInvalid(errorIcon, input);
           setMessage(errorMsg, 'Invalid character found.');
         }
       });
     } else if (input.validity.tooLong) {
-
+      setInvalid(errorIcon, input);
+      setMessage(errorMsg, 'Too many characters.');
+      setVisible(errorIcon, errorMsg);
+      input.addEventListener('input', (e) => {
+        if (input.validity.valid) {
+          setValid(errorIcon, input);
+          setMessage(errorMsg, 'Valid.');
+        } else {
+          setInvalid(errorIcon, input);
+          setMessage(errorMsg, 'Too many characters.');
+        }
+      });
     } else if (input.validity.tooShort) {
-
+      setInvalid(errorIcon, input);
+      setMessage(errorMsg, 'Please enter at least 8 characters.');
+      setVisible(errorIcon, errorMsg);
+      input.addEventListener('input', (e) => {
+        if (input.validity.valid) {
+          setValid(errorIcon, input);
+          setMessage(errorMsg, 'Valid.');
+        } else {
+          setInvalid(errorIcon, input);
+          setMessage(errorMsg, 'Please enter at least 8 characters.');
+        }
+      });
     }
   }
 }
