@@ -16,14 +16,25 @@ function validateForm(e) {
       input.addEventListener('input', (e) => {
         if (input.validity.valid) {
           setValid(errorIcon, input);
-          setMessage(errorMsg, 'Valid email');
+          setMessage(errorMsg, 'Valid');
         } else {
           setInvalid(errorIcon, input);
           setMessage(errorMsg, 'Wrong format. | name@example.com');
         }
       });
     } else if (input.validity.patternMismatch) {
-
+      setInvalid(errorIcon, input);
+      setMessage(errorMsg, 'Invalid character found.');
+      setVisible(errorIcon, errorMsg);
+      input.addEventListener('input', (e) => {
+        if (input.validity.valid) {
+          setValid(errorIcon, input);
+          setMessage(errorMsg, 'Valid');
+        } else {
+          setInvalid(errorIcon, input);
+          setMessage(errorMsg, 'Invalid character found.');
+        }
+      });
     } else if (input.validity.tooLong) {
 
     } else if (input.validity.tooShort) {
