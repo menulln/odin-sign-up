@@ -1,7 +1,28 @@
 const inputElements = document.querySelectorAll('input');
+const passwordConfirm = document.querySelector('#password-confirm');
 
 inputElements.forEach( (input) => {
   input.addEventListener('focusout', validateForm);
+});
+
+passwordConfirm.addEventListener('focusout', (e) => {
+  const password = document.querySelector('#password');
+  if (!(passwordConfirm.value === password.value)) {
+    const errorIcon = passwordConfirm.nextElementSibling;
+    const errorMsg = errorIcon.firstChild; 
+    setInvalid(errorIcon, passwordConfirm);
+    setMessage(errorMsg, 'Passwords do not match.');
+    setVisible(errorIcon, errorMsg);
+    passwordConfirm.addEventListener('input', (e) => {
+      if (passwordConfirm.value === password.value) {
+        setValid(errorIcon, passwordConfirm);
+        setMessage(errorMsg, 'Valid.');
+      } else {
+        setInvalid(errorIcon, passwordConfirm);
+        setMessage(errorMsg, 'Passwords do not match.');
+      }
+    });
+  }
 });
 
 function validateForm(e) {
