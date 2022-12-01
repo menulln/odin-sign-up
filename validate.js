@@ -1,11 +1,26 @@
 const inputElements = document.querySelectorAll('input');
 const passwordConfirm = document.querySelector('#password-confirm');
+const submitButton = document.querySelector('.submit-button');
 
 inputElements.forEach( (input) => {
   input.addEventListener('focusout', validateForm);
 });
 
 passwordConfirm.addEventListener('focusout', validatePassword);
+
+submitButton.addEventListener('click', (e) => {
+  inputElements.forEach( (input) => {
+    if (input.validity.valueMissing) {
+      const errorIcon = input.nextElementSibling;
+      const errorMsg = errorIcon.firstChild; 
+      setError(errorIcon, errorMsg, input, 'valueMissing');
+      e.preventDefault();
+    }
+    if (!(input.validity.valid)) {
+      e.preventDefault();
+    }
+  });
+});
 
 function validateForm(e) {
   const input = e.target;
@@ -49,6 +64,7 @@ function setError(icon, message, input, type) {
                      : (type === 'patternMismatch') ? 'Invalid character found.'
                      : (type === 'tooLong') ? 'Too many characters.'
                      : (type === 'tooShort') ? 'Please enter at least 8 characters.'
+                     : (type === 'valueMissing') ? 'This field is required.'
                      : 'Invalid';
   setInvalid(icon, input);
   setMessage(message, errorMessage);
